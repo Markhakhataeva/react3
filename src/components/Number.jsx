@@ -1,10 +1,10 @@
 import React from "react";
 
 
-export const Numbers=()=>{
+export const Numbers=({count})=>{
     return(
         <div className="number"> 
-           <p>0</p>
+           <p>{count}</p>
         </div>
     )
 }
