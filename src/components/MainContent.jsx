@@ -1,33 +1,32 @@
-import React, { useState } from "react";
 import { Buttons } from "./Buttons";
 import { Numbers } from "./Number";
 
-export const Main=()=>{
+export const Main=({counter,dispatch})=>{
 
-    const [counter,setCounter]=useState(0)
-    
+
     const plus=()=>{
-        if (counter >= 0 ){
-            setCounter(counter + 3)
-        }
+            dispatch({
+                type:'add',
+            })
     }
 
     const minus=()=>{
-        if (counter >0 ){
-            setCounter(counter - 2)
-        }
+        dispatch({
+            type:'min',
+        })
     }
 
     const reset=()=>{
-        setCounter(0)
-        
+        dispatch({
+            type:'reset',
+        })
     }
 
 
 
     return(
     <main>
-        <Numbers count={counter}/>
+        <Numbers counter={counter}/>
         <Buttons plus={plus} minus={minus} reset={reset}/>
     </main>)
 }
