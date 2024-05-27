@@ -6,20 +6,17 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 
 const reducer = (state=0,action) => {
-    if(action.type==='add'){
-        return state+1;
+    switch(action.type) {
+        case "add":
+            return state + 1
+
+        case "min":
+            return state - 1
+
+        case "reset":
+            return state =0
+
     }
-
-    if(action.type==='min'){
-        return state-1;
-    }
-
-    if(action.type==='reset'){
-        return state = 0;
-    }
-
-
-    return state
 }
 const store = createStore(reducer);
 

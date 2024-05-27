@@ -1,25 +1,20 @@
 import { Buttons } from "./Buttons";
 import { Numbers } from "./Number";
+import {Add, Minus, Reset} from "./actions";
 
 export const Main=({counter,dispatch})=>{
 
 
     const plus=()=>{
-            dispatch({
-                type:'add',
-            })
+            dispatch(Add())
     }
 
     const minus=()=>{
-        dispatch({
-            type:'min',
-        })
+        dispatch(Minus())
     }
 
     const reset=()=>{
-        dispatch({
-            type:'reset',
-        })
+        dispatch(Reset())
     }
 
 
