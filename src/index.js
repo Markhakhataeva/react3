@@ -5,7 +5,9 @@ import {App} from './App';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 
-const reducer = (state=0,action) => {
+
+const initialState = 0
+const reducer = (state=initialState,action) => {
     switch(action.type) {
         case "add":
             return state + 1
@@ -14,11 +16,20 @@ const reducer = (state=0,action) => {
             return state - 1
 
         case "reset":
-            return state =0
+            return state = 0
 
+        default:
+            return state
     }
 }
-const store = createStore(reducer);
+
+const preloadedState = JSON.parse(localStorage.getItem('counter'))
+
+const store = createStore(reducer,preloadedState ? preloadedState : initialState);
+
+store.subscribe(()=>{
+    localStorage.setItem("counter",store.getState())
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

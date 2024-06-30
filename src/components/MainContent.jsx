@@ -6,7 +6,7 @@ export const Main=({counter,dispatch})=>{
 
 
     const plus=()=>{
-            dispatch(Add())
+        dispatch(Add())
     }
 
     const minus=()=>{
